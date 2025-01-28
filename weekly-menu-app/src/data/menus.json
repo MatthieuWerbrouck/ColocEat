@@ -1,37 +1,11 @@
-[
-    {
-        "jour": "Lundi",
-        "plat": "Salade César",
-        "description": "Salade avec poulet grillé, croûtons et parmesan."
-    },
-    {
-        "jour": "Mardi",
-        "plat": "Pâtes à la bolognaise",
-        "description": "Pâtes servies avec une sauce à la viande."
-    },
-    {
-        "jour": "Mercredi",
-        "plat": "Tacos",
-        "description": "Tacos garnis de viande, légumes et salsa."
-    },
-    {
-        "jour": "Jeudi",
-        "plat": "Poulet rôti",
-        "description": "Poulet rôti avec légumes de saison."
-    },
-    {
-        "jour": "Vendredi",
-        "plat": "Pizza Margherita",
-        "description": "Pizza classique avec tomate, mozzarella et basilic."
-    },
-    {
-        "jour": "Samedi",
-        "plat": "Sushi",
-        "description": "Assortiment de sushis frais."
-    },
-    {
-        "jour": "Dimanche",
-        "plat": "Rôti de bœuf",
-        "description": "Rôti de bœuf servi avec purée de pommes de terre."
-    }
-]
+{
+    "menus": [
+        { "date": "2023-10-23", "menu": "Poulet rôti et légumes" },
+        { "date": "2023-10-24", "menu": "Pâtes à la bolognaise" },
+        { "date": "2023-10-25", "menu": "Salade César" },
+        { "date": "2023-10-26", "menu": "Poisson grillé et riz" },
+        { "date": "2023-10-27", "menu": "Pizza maison" },
+        { "date": "2023-10-28", "menu": "Burgers et frites" },
+        { "date": "2023-10-29", "menu": "Rôti de bœuf et pommes de terre" }
+    ]
+}

@@ -3,31 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application de Menu Hebdomadaire</title>
+    <title>Menus de la Semaine</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <header>
-        <h1>Menus de la Semaine</h1>
-    </header>
-    <main>
-        <section id="menu-display">
-            <h2>Menus Enregistrés</h2>
-            <ul id="menu-list"></ul>
-        </section>
-        <section id="menu-form">
-            <h2>Ajouter un Menu</h2>
-            <form id="add-menu-form">
-                <label for="day">Jour:</label>
-                <input type="text" id="day" required>
-                <label for="dish">Plat:</label>
-                <input type="text" id="dish" required>
-                <label for="description">Description:</label>
-                <textarea id="description" required></textarea>
-                <button type="submit">Ajouter Menu</button>
+    <h1>Menus de la Semaine</h1>
+    <div class="tabs">
+        <button class="tab-button" onclick="showTab('current-week')">Semaine en cours</button>
+        <button class="tab-button" onclick="showTab('history')">Historique</button>
+    </div>
+    <div id="current-week" class="tab-content">
+        <table id="menu-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Menu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Les menus seront insérés ici par JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    <div id="history" class="tab-content" style="display:none;">
+        <table id="history-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Menu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Les menus seront insérés ici par JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <button id="open-modal">Ajouter un nouveau menu</button>
+
+    <!-- Modale -->
+    <div id="menu-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Ajouter un nouveau menu</h2>
+            <form id="menu-form">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+                <label for="menu">Menu:</label>
+                <input type="text" id="menu" name="menu" required>
+                <label for="storage">Méthode de stockage:</label>
+                <select id="storage" name="storage">
+                    <option value="local">Local Storage</option>
+                    <option value="json">JSON</option>
+                </select>
+                <button type="submit">Ajouter</button>
             </form>
-        </section>
-    </main>
+        </div>
+    </div>
+
     <script src="scripts/app.js"></script>
 </body>
 </html>
