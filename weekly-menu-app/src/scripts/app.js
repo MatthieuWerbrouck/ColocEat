@@ -43,9 +43,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const tableBody = document.querySelector('#menu-table tbody');
     const historyTableBody = document.querySelector('#history-table tbody');
     const menuForm = document.getElementById('menu-form');
+    const settingsForm = document.getElementById('settings-form');
     const modal = document.getElementById('menu-modal');
+    const settingsModal = document.getElementById('settings-modal');
     const openModalBtn = document.getElementById('open-modal');
-    const closeModalBtn = document.querySelector('.close');
+    const openSettingsModalBtn = document.getElementById('open-settings-modal');
+    const closeModalBtns = document.querySelectorAll('.close');
 
     // Charger les menus existants
     const storedMenus = JSON.parse(localStorage.getItem('menus')) || [];
@@ -70,20 +73,33 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Error fetching menus:', error));
 
-    // Ouvrir la modale
+    // Ouvrir la modale pour ajouter un menu
     openModalBtn.addEventListener('click', () => {
         modal.style.display = 'block';
     });
 
-    // Fermer la modale
-    closeModalBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
+    // Ouvrir la modale des paramètres
+    openSettingsModalBtn.addEventListener('click', () => {
+        settingsModal.style.display = 'block';
+        const storageMethod = localStorage.getItem('storageMethod') || 'local';
+        document.getElementById('storage').value = storageMethod;
     });
 
-    // Fermer la modale en cliquant en dehors de celle-ci
+    // Fermer les modales
+    closeModalBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            settingsModal.style.display = 'none';
+        });
+    });
+
+    // Fermer les modales en cliquant en dehors de celles-ci
     window.addEventListener('click', (event) => {
         if (event.target == modal) {
             modal.style.display = 'none';
+        }
+        if (event.target == settingsModal) {
+            settingsModal.style.display = 'none';
         }
     });
 
@@ -92,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         const date = document.getElementById('date').value;
         const menu = document.getElementById('menu').value;
-        const storageMethod = document.getElementById('storage').value;
+        const storageMethod = localStorage.getItem('storageMethod') || 'local';
 
         const newMenu = { date, menu };
         if (isCurrentWeek(newMenu.date)) {
@@ -107,6 +123,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         modal.style.display = 'none';
+    });
+
+    // Enregistrer les paramètres
+    settingsForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const storageMethod = document.getElementById('storage').value;
+        localStorage.setItem('storageMethod', storageMethod);
+        settingsModal.style.display = 'none';
     });
 
     function addMenuToTable(menu, tableBody) {

@@ -8,9 +8,13 @@
 </head>
 <body>
     <h1>Menus de la Semaine</h1>
-    <div class="tabs">
-        <button class="tab-button" onclick="showTab('current-week')">Semaine en cours</button>
-        <button class="tab-button" onclick="showTab('history')">Historique</button>
+    <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+            <a href="#" onclick="showTab('current-week')">Semaine en cours</a>
+            <a href="#" onclick="showTab('history')">Historique</a>
+            <a href="#" id="open-settings-modal">Paramètres</a>
+        </div>
     </div>
     <div id="current-week" class="tab-content">
         <table id="menu-table">
@@ -41,7 +45,7 @@
 
     <button id="open-modal">Ajouter un nouveau menu</button>
 
-    <!-- Modale -->
+    <!-- Modale pour ajouter un menu -->
     <div id="menu-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -51,12 +55,23 @@
                 <input type="date" id="date" name="date" required>
                 <label for="menu">Menu:</label>
                 <input type="text" id="menu" name="menu" required>
+                <button type="submit">Ajouter</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modale pour les paramètres -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Paramètres</h2>
+            <form id="settings-form">
                 <label for="storage">Méthode de stockage:</label>
                 <select id="storage" name="storage">
                     <option value="local">Local Storage</option>
                     <option value="json">JSON</option>
                 </select>
-                <button type="submit">Ajouter</button>
+                <button type="submit">Enregistrer</button>
             </form>
         </div>
     </div>
