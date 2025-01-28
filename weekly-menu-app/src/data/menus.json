@@ -1,0 +1,37 @@
+[
+    {
+        "jour": "Lundi",
+        "plat": "Salade César",
+        "description": "Salade avec poulet grillé, croûtons et parmesan."
+    },
+    {
+        "jour": "Mardi",
+        "plat": "Pâtes à la bolognaise",
+        "description": "Pâtes servies avec une sauce à la viande."
+    },
+    {
+        "jour": "Mercredi",
+        "plat": "Tacos",
+        "description": "Tacos garnis de viande, légumes et salsa."
+    },
+    {
+        "jour": "Jeudi",
+        "plat": "Poulet rôti",
+        "description": "Poulet rôti avec légumes de saison."
+    },
+    {
+        "jour": "Vendredi",
+        "plat": "Pizza Margherita",
+        "description": "Pizza classique avec tomate, mozzarella et basilic."
+    },
+    {
+        "jour": "Samedi",
+        "plat": "Sushi",
+        "description": "Assortiment de sushis frais."
+    },
+    {
+        "jour": "Dimanche",
+        "plat": "Rôti de bœuf",
+        "description": "Rôti de bœuf servi avec purée de pommes de terre."
+    }
+]

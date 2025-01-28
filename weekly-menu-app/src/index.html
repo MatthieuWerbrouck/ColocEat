@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application de Menu Hebdomadaire</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>Menus de la Semaine</h1>
+    </header>
+    <main>
+        <section id="menu-display">
+            <h2>Menus Enregistrés</h2>
+            <ul id="menu-list"></ul>
+        </section>
+        <section id="menu-form">
+            <h2>Ajouter un Menu</h2>
+            <form id="add-menu-form">
+                <label for="day">Jour:</label>
+                <input type="text" id="day" required>
+                <label for="dish">Plat:</label>
+                <input type="text" id="dish" required>
+                <label for="description">Description:</label>
+                <textarea id="description" required></textarea>
+                <button type="submit">Ajouter Menu</button>
+            </form>
+        </section>
+    </main>
+    <script src="scripts/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "weekly-menu-app",
+  "version": "1.0.0",
+  "description": "Une application web pour gérer les menus de la semaine.",
+  "main": "src/scripts/app.js",
+  "scripts": {
+    "start": "live-server src"
+  },
+  "keywords": [
+    "menu",
+    "semaine",
+    "application",
+    "web"
+  ],
+  "author": "Votre Nom",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
