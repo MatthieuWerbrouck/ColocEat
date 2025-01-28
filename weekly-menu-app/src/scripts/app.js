@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const dateCell = document.createElement('td');
         const menuCell = document.createElement('td');
 
-        dateCell.textContent = menu.date;
+        dateCell.textContent = formatDate(menu.date);
         menuCell.textContent = menu.menu;
 
         row.appendChild(dateCell);
@@ -187,6 +187,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const startOfWeek = new Date(now.setDate(now.getDate() - now.getDay() + 1));
         const endOfWeek = new Date(now.setDate(now.getDate() - now.getDay() + 7));
         return date >= startOfWeek && date <= endOfWeek;
+    }
+
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
     }
 
     window.showTab = function(tabId) {
