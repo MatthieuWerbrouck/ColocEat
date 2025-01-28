@@ -73,6 +73,10 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Error fetching menus:', error));
 
+    // Appliquer le thème sélectionné
+    const theme = localStorage.getItem('theme') || 'light';
+    document.body.classList.toggle('dark-mode', theme === 'dark');
+
     // Ouvrir la modale pour ajouter un menu
     openModalBtn.addEventListener('click', () => {
         modal.style.display = 'block';
@@ -83,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         settingsModal.style.display = 'block';
         const storageMethod = localStorage.getItem('storageMethod') || 'local';
         document.getElementById('storage').value = storageMethod;
+        document.getElementById('theme').value = theme;
     });
 
     // Fermer les modales
@@ -129,7 +134,10 @@ document.addEventListener('DOMContentLoaded', () => {
     settingsForm.addEventListener('submit', (event) => {
         event.preventDefault();
         const storageMethod = document.getElementById('storage').value;
+        const theme = document.getElementById('theme').value;
         localStorage.setItem('storageMethod', storageMethod);
+        localStorage.setItem('theme', theme);
+        document.body.classList.toggle('dark-mode', theme === 'dark');
         settingsModal.style.display = 'none';
     });
 

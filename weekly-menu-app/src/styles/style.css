@@ -237,3 +237,56 @@ button[type="submit"]:hover {
 .dropdown:hover .dropbtn {
     background-color: #45a049;
 }
+
+/* Mode sombre */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode table {
+    color: #ffffff;
+}
+
+body.dark-mode th {
+    background-color: #333333;
+}
+
+body.dark-mode td {
+    border-color: #555555;
+}
+
+body.dark-mode .modal-content {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+body.dark-mode .dropbtn {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+body.dark-mode .dropdown-content {
+    background-color: #444444;
+}
+
+body.dark-mode .dropdown-content a {
+    color: #ffffff;
+}
+
+body.dark-mode .dropdown-content a:hover {
+    background-color: #555555;
+}
+
+body.dark-mode button,
+body.dark-mode input[type="submit"],
+body.dark-mode .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+body.dark-mode button:hover,
+body.dark-mode input[type="submit"]:hover,
+body.dark-mode .dropbtn:hover {
+    background-color: #45a049;
+}
