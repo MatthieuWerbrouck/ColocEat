@@ -44,11 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const historyTableBody = document.querySelector('#history-table tbody');
     const menuForm = document.getElementById('menu-form');
     const settingsForm = document.getElementById('settings-form');
-    const modal = document.getElementById('menu-modal');
-    const settingsModal = document.getElementById('settings-modal');
     const openModalBtn = document.getElementById('open-modal');
     const openSettingsModalBtn = document.getElementById('open-settings-modal');
     const closeModalBtns = document.querySelectorAll('.close');
+    const menuModal = document.getElementById('menu-modal');
+    const settingsModal = document.getElementById('settings-modal');
 
     // Charger les menus existants
     const storedMenus = JSON.parse(localStorage.getItem('menus')) || [];
@@ -76,10 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Appliquer le thème sélectionné
     const theme = localStorage.getItem('theme') || 'light';
     document.body.classList.toggle('dark-mode', theme === 'dark');
+    document.body.classList.toggle('bg-dark', theme === 'dark');
+    document.body.classList.toggle('text-light', theme === 'dark');
+    document.body.classList.toggle('bg-light', theme === 'light');
+    document.body.classList.toggle('text-dark', theme === 'light');
 
     // Ouvrir la modale pour ajouter un menu
     openModalBtn.addEventListener('click', () => {
-        modal.style.display = 'block';
+        menuModal.style.display = 'block';
     });
 
     // Ouvrir la modale des paramètres
@@ -93,15 +97,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fermer les modales
     closeModalBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            modal.style.display = 'none';
+            menuModal.style.display = 'none';
             settingsModal.style.display = 'none';
         });
     });
 
     // Fermer les modales en cliquant en dehors de celles-ci
     window.addEventListener('click', (event) => {
-        if (event.target == modal) {
-            modal.style.display = 'none';
+        if (event.target == menuModal) {
+            menuModal.style.display = 'none';
         }
         if (event.target == settingsModal) {
             settingsModal.style.display = 'none';
@@ -127,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
             saveMenuToJson(newMenu);
         }
 
-        modal.style.display = 'none';
+        menuModal.style.display = 'none';
     });
 
     // Enregistrer les paramètres
@@ -138,10 +142,15 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('storageMethod', storageMethod);
         localStorage.setItem('theme', theme);
         document.body.classList.toggle('dark-mode', theme === 'dark');
+        document.body.classList.toggle('bg-dark', theme === 'dark');
+        document.body.classList.toggle('text-light', theme === 'dark');
+        document.body.classList.toggle('bg-light', theme === 'light');
+        document.body.classList.toggle('text-dark', theme === 'light');
         settingsModal.style.display = 'none';
     });
 
     function addMenuToTable(menu, tableBody) {
+        if (!tableBody) return; // Vérifiez si tableBody existe
         const row = document.createElement('tr');
         const dateCell = document.createElement('td');
         const menuCell = document.createElement('td');
@@ -208,3 +217,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Afficher l'onglet de la semaine en cours par défaut
     showTab('current-week');
 });
+

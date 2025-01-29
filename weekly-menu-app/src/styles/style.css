@@ -18,8 +18,8 @@ h1 {
 }
 
 .container {
-    width: 80%;
-    margin: auto;
+    max-width: 800px;
+    margin: 0 auto;
     overflow: hidden;
 }
 
@@ -288,5 +288,42 @@ body.dark-mode .dropbtn {
 body.dark-mode button:hover,
 body.dark-mode input[type="submit"]:hover,
 body.dark-mode .dropbtn:hover {
+    background-color: #45a049;
+}
+
+body.dark-mode .table {
+    color: #ffffff;
+}
+
+body.dark-mode .table th {
+    background-color: #333333;
+}
+
+body.dark-mode .table td {
+    border-color: #555555;
+}
+
+body.dark-mode .dropdown-menu {
+    background-color: #444444;
+}
+
+body.dark-mode .dropdown-item {
+    color: #ffffff;
+}
+
+body.dark-mode .dropdown-item:hover {
+    background-color: #555555;
+}
+
+body.dark-mode .btn,
+body.dark-mode .btn-primary,
+body.dark-mode .btn-success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+body.dark-mode .btn:hover,
+body.dark-mode .btn-primary:hover,
+body.dark-mode .btn-success:hover {
     background-color: #45a049;
 }
